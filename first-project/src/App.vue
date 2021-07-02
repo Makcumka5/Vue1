@@ -1,35 +1,47 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    
-        <HelloWorld msg="My Calc" />
-    <Calculator />
+    <img alt="Vue logo" src="./assets/logo.png" />
+    <!-- <Calculator /> -->
 
+    <hr />
+
+    <calculator v-if="Calculator" />
+    <button @click="Calculator = !Calculator">Calc</button>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-import Calculator from './components/Calculator.vue'
+import Calculator from "./components/Calculator.vue";
 export default {
-  name: 'App',
-  components: {
-    HelloWorld,
-    Calculator
-  },
-  data(){
+  name: "App",
+
+  data() {
     return {
-      count: 0, 
-      currentDate: 0,
-      message: "Hello Vue",    
-    }
+      Calculator: null,
+    };
   },
-  // computed: {
-  //   computedDate(){
-  //     return this.currentDate || "Текущая дата"
+  //  methods: {
+  //     onMouseOver () {
+  //       console.log('Hovered on button!')
+  //     }
+  //   },
+  //   mounted () {
+  //     const btn = this.$el.querySelector('button')
+  //     if (btn) {
+  //       btn.addEventListener('mouseover', this.onMouseOver)
+  //     }
   //   }
-  // }
-}
+  // beforeDestroy() {
+  //   const btn = this.$el.querySelector("button");
+  //   if (btn) {
+  //     btn.removeEventListener("onmouseover", this.onHover);
+  //   }
+  // },
+
+  components: {
+    Calculator,
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -40,9 +52,5 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
-}
-
-.data{
-  font-size: 20px;
 }
 </style>
